@@ -1,0 +1,646 @@
+﻿/*-----------------------
+RESET AND BASE STYLES
+-------------------------*/
+
+/* The asterisk (*) is known as the CSS universal selectors. It can be used to select any and all types of elements in an HTML page. The asterisk can also be followed by a selector while using to select a child object. This selector is useful when we want to select all the elements on the page. */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/* REM: Relative to font-size of the root element: Equal to the computed value of font-size on the root element. When specified on the font-size property of the root element, the rem units refer to the property's initial value. This means that 1rem equals the font size of the html element (which for most browsers has a default value of 16px)
+
+We are going to use 'ram' as the measurement unit. By default 1 ram = 16 pixels, because the font size of the HTML element  is equal to 16 pixels.
+
+To convert one ram into ten (10) pixels, we have to decrease the font size of the HTML element. We need to make it sixty two point five percent So, in this case, one rem (1rem) will be equal to ten pixels (10px). */
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+
+body,
+button,
+input,
+textarea {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: .4rem;
+    /* border-top-left-radius: .4rem;
+    border-top-right-radius: .4rem;  */
+
+}
+
+header {
+    background-color: #000;
+    height: 10rem;
+}
+
+.sidebar-right {
+    background-color: #000;
+    color: #fff;
+}
+
+.section-header {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.fa-film {
+    padding-right: 2rem;
+}
+
+
+h2 span {
+   font-weight: 400;
+}
+
+h3 {
+	color: #64A1F0;
+}
+
+.fa-star {
+    padding: 0 1rem 0 2rem;
+}
+
+p{
+	text-align: justify;
+
+}
+
+
+/*------------------------------------------------
+Media query when the screen is wider than 1120px
+--------------------------------------------------*/
+/*Cuando la pantalla sea mayor a 1120px en tamaño, 
+el sidebar se colocará verticalmente en el extremo derecho de la pantalla, 
+(The main-content and the sidebar has the same hight no mather what type of content the have)
+cuando la pantalla es menor de 1120px, el sidedar se colocará de forma horizontal.
+----------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 1120px) {
+
+    .content-area {
+        display: flex;
+    }
+
+    .sidebar-right {
+        flex: 0 0 32rem;
+        /*
+    0 = It won't grow
+    0 = It won´t shrink below a specific width which is 320 pixels (32rem) . 
+    */
+    }
+}
+
+.scroll-up-btn i {
+    width: 1.2em;
+    height: 1.2em;
+    font-size: 1.7em;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    bottom: 2rem;
+    border-radius: .2rem;
+    right:2rem;
+    color: #F6D200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+    z-index: 100;
+    /*Remember to add in the HTML class (above): 
+    scroll-behavior: smooth;*/
+  }
+  
+  .scroll-up-btn i:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+/*-----------------------
+END RESET OF BASE STYLES
+-------------------------*/
+
+
+/*---------------------------
+START THE HEADER STYLES
+----------------------------*/
+
+.site-header {
+    height: 40rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.site-info {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  
+}
+
+
+.site-title {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+	
+}
+
+.site-description {
+    text-align: center;
+    color: #F6D200;
+    font-size: 2rem;
+    margin-top: -0.8rem;
+    font-style: italic;
+}
+
+
+/* Main Menu */
+.main-menu {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    display: block;
+    transition: all .5s ease;
+}
+
+.main-menu li a:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #F6D200;
+}
+
+
+
+
+@media screen and (min-width:810px) {
+    
+   
+    .main-menu ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .main-menu ul li {
+        flex-grow: 1;
+        flex-basis: auto;
+        flex-shrink: 0;
+    }
+}
+
+/* End of Main Menu */
+
+
+/* @media screen and (min-width:1120px(738*516)) {} */
+@media screen and (min-width: 1120px) {
+
+    .sticky {
+	position: -webkit-fixed;
+	position: fixed;
+	top: 0;
+}
+
+    .site-title {
+        font-size: 6rem;
+    }
+}
+
+/* @media screen and (min-width:810px) {} */
+
+/*---------------------------
+END OF THE HEADER STYLES
+----------------------------*/
+
+
+/*---------------------------
+START THE POST STYLES
+----------------------------*/
+.posts {
+    margin-top: 1rem;
+   
+}
+
+.main-content-area {
+    padding: 2rem
+}
+
+.post {
+    background-color: #3C3C3C;
+    margin-bottom: 2rem;
+    border-radius: .4rem;
+
+}
+
+.post a {
+    color: #000;
+    text-decoration: none;
+}
+
+.post-content {
+    padding: 0 4rem 2rem;
+   
+}
+
+.post-content p {
+    color: #fff
+}
+.post-content h2 {
+    background-color: #1A1A1A;
+    color: #F6D200;
+    padding: 2rem;
+    text-align: center;
+    margin: 0 -4rem 3rem;
+    font-weight: 500;
+}
+
+
+/*Media query when the screen is wider than 810px*/
+
+@media screen and (min-width: 810px) {
+
+    .posts {
+        display: flex;
+        /* All the posts will be displayed side by side*/
+        flex-wrap: wrap;
+        /* The posts will wrap to the next line if they have no free space*/
+        justify-content: space-between;
+    }
+
+    .post {
+        flex-basis: 49%
+    }
+
+}
+
+/*Media query when the screen is wider than 1120px (wide screen)*/
+
+@media screen and (min-width: 1120px) {
+
+    .post-one-third {
+        flex-basis: 32%;
+    }
+
+    .post-half {
+        flex-basis: 49%;
+    }
+}
+
+.post-full {
+    flex-basis: 100%;
+}
+
+/*---------------------------
+END OF POST STYLES
+----------------------------*/
+
+
+/*---------------------------
+ START WATCH SECTION STYLES
+----------------------------*/
+.watch {
+    margin-bottom: 4rem;
+}
+
+
+
+.watch-card {
+    margin-bottom: 2.5rem;
+}
+
+.watch-content {
+    background-color: #000;
+    color: white;
+    padding: 4rem;
+}
+
+.watch-content h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.movie-info {
+    font-weight: bold;
+}
+
+.movie-info span {
+    padding-right: 2rem;
+}
+
+.movie-story {
+    margin: 1rem 0;
+}
+
+.watch-content a {
+    color: #F6D200;
+    font-weight: bold;
+}
+
+/*Media query when the screen is wider than 810px (wide screen)*/
+@media screen and (min-width: 810px) {
+
+    .watch-card {
+        display: flex;
+    }
+
+    .watch-content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    .img-right {
+        order: 2;
+        /*Remember all the flex items have orders zero (0) by default so any item taking order grater than zero will be displayed at the end of the line*/
+    }
+}
+
+/*-----------------------------
+ END OF WATCH SECTION STYLES
+------------------------------*/
+
+
+/*-----------------------------
+ START DOWNLOAD SECTION STYLES
+-------------------------------*/
+.download {
+    margin-bottom: 4rem;
+
+   
+}
+
+.download-card {
+    margin-bottom: 1rem;
+    border-radius: .4rem;
+    
+}
+
+
+
+
+.download-content {
+    background-color: #1A1A1A;
+    color: #fff;
+    
+   
+    
+}
+
+.download-content a {
+    background: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    
+}
+
+.download-content a i {
+    font-size: 2.5rem;
+}
+
+.download-info {
+    padding: 1rem 2rem;
+    
+}
+
+.download-info h4 {
+    margin: 0;
+
+}
+
+.download-info p {
+    margin: 0;
+    font-size: 2rem
+}
+
+.download-img img {
+ border-top-left-radius: .4rem;
+ border-top-right-radius: .4rem;  
+}
+ 
+.download-cast img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.download-rating {
+    background-color: #F6D200;
+    padding: 2rem 2rem;
+    color: #000;
+    font-size: 1.8rem;
+    border-bottom-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+
+.download-rating .rate {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: -0.25rem;
+}
+
+.download-content {
+    display: flex;
+    flex-flow: column;
+}
+
+.download-content a,
+.download-rating {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.download-genre,
+.download-cast {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.download-info h4 {
+    flex-basis: 20%;
+}
+
+.download-genre {
+    margin-bottom: .8rem;
+}
+
+/*Media query for medium and large screens (wide screen)*/
+@media screen and (min-width: 810px) {
+
+    .download-content {
+        display: flex;
+        flex-flow: row
+    }
+
+    .download-content a,
+    .download-rating {
+        flex-grow: 1;
+    }
+
+    .download-info {
+        flex-grow: 2;
+    }
+}
+    /*------------------------------
+ END OF DOWNLOAD SECTION STYLES
+-------------------------------*/
+
+
+    /*------------------------------
+ START GALLERY SECTION STYLES
+-------------------------------*/
+
+    .gallery-imgs {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -8px;
+    }
+
+    .gallery-img {
+        height: 250px;
+        flex-grow: 1;
+        margin: 0 0 8px 8px;
+    }
+
+    .gallery-img img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* https://www.w3schools.com/cssref/sel_nth-child.asp*/
+    .gallery-img:nth-child(4n+1) {
+        flex-basis: 250px;
+    }
+    .gallery-img:nth-child(4n+2) {
+        flex-basis: 325px;
+    }
+    .gallery-img:nth-child(4n+3) {
+        flex-basis: 180px;
+    }
+    .gallery-img:nth-child(4n+4) {
+        flex-basis: 380px;
+    }
+
+    
+
+/*------------------------------
+ END OF GALLERY SECTION STYLES
+-------------------------------*/
+
+
+    /*------------------------------
+ START SIDEBAR SECTION STYLES
+-------------------------------*/
+
+    .sidebar-right {
+        padding: 2rem;
+        color: #fff;
+        margin-top: 1rem;
+    }
+
+    .widget {
+        background-color: #3C3C3C;
+        margin-bottom: 2rem;
+        border-radius: .4rem;
+    }
+
+    .widget-content {
+
+        padding: .5rem 2rem;
+    }
+
+
+
+    .sidebar-right ul {
+        padding: 1.5rem 1rem
+    }
+
+    .sidebar-right ul a {
+        display: block;
+        padding-bottom: .4rem;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: 810px) and (max-width: 1120px) {
+
+        .sidebar-right {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .widget {
+            flex-basis: 48.8%;
+        }
+    }
+
+/*------------------------------
+ END OF SIDEBAR SECTION STYLES
+-------------------------------*/
+
+/*------------------------------
+ FOOTER SECTION STYLES
+-------------------------------*/
+footer{
+    height: 8rem;
+    background-color: #000;
+    color:#aaa;
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    font-family: 'Roboto', sans-serif;
+}
+/*------------------------------
+ END OF FOOTER SECTION STYLES
+-------------------------------*/
+
