@@ -1,6 +1,6 @@
 ## Movies Home Website
 
-* HTML5, CSS3 responsive 'Flexbox Based Project'.
+* HTML5, CSS3 | 'Flexbox Based'.
 
   - Learning and training purpose.
 
